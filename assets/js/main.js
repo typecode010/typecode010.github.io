@@ -27,11 +27,19 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  // Active navigation on scroll
+  // Active navigation on scroll + navbar scroll glass effect
   const sections = document.querySelectorAll('section[id]');
+  const navbar = document.querySelector('.navbar');
   
   function updateActiveNav() {
     const scrollY = window.pageYOffset;
+
+    // Add scrolled class for enhanced glass effect
+    if (scrollY > 50) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
     
     sections.forEach(section => {
       const sectionHeight = section.offsetHeight;
@@ -83,25 +91,25 @@ document.addEventListener('DOMContentLoaded', function() {
       
       typewriterElement.textContent = currentWord.substring(0, charIndex);
       
-      let typeSpeed = 100;
+      let typeSpeed = 90;
       
       if (isDeleting) {
-        typeSpeed /= 2;
+        typeSpeed = 50;
       }
       
       if (!isDeleting && charIndex === currentWord.length) {
-        typeSpeed = 2000;
+        typeSpeed = 2200;
         isDeleting = true;
       } else if (isDeleting && charIndex === 0) {
         isDeleting = false;
         wordIndex = (wordIndex + 1) % words.length;
-        typeSpeed = 500;
+        typeSpeed = 400;
       }
       
       setTimeout(type, typeSpeed);
     }
     
-    setTimeout(type, 1000);
+    setTimeout(type, 1200);
   }
 
   // Code typing animation for backend.py window (loop + syntax colors)
@@ -200,6 +208,23 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   });
+
+  // Intersection Observer for fade-in-up scroll animations
+  const fadeElements = document.querySelectorAll('.fade-in-up');
+
+  const fadeObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        // Don't unobserve so re-scrolling up then down re-triggers (optional: unobserve for one-shot)
+      }
+    });
+  }, {
+    threshold: 0.12,
+    rootMargin: '0px 0px -40px 0px'
+  });
+
+  fadeElements.forEach(el => fadeObserver.observe(el));
 
   const featuredProjectsData = [
     {
