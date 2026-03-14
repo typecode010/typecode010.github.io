@@ -3,578 +3,229 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Projects by Muhammad Atif — backend APIs, automation, and production-ready systems." />
-    <title>Projects | Muhammad Atif</title>
+    <meta
+      name="description"
+      content="Ali Sher projects - backend APIs, automation systems, and production-ready platforms."
+    />
+    <title>Projects | Ali Sher</title>
     <link rel="stylesheet" href="assets/css/style.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
     <script src="assets/js/main.js" defer></script>
   </head>
-  <body>
-    <div class="animated-bg">
-      <div class="grid-dots"></div>
-      <div class="floating-shapes">
-        <div class="shape shape-1"></div>
-        <div class="shape shape-2"></div>
-        <div class="shape shape-3"></div>
-        <div class="shape shape-4"></div>
-      </div>
+  <body data-page="projects">
+    <div class="noise-overlay" aria-hidden="true"></div>
+    <div class="animated-bg" aria-hidden="true">
+      <span class="orb orb-cyan"></span>
+      <span class="orb orb-purple"></span>
+      <span class="grid-layer"></span>
     </div>
 
-    <div class="terminal-cursor"></div>
+    <header class="site-header">
+      <nav class="navbar glass" aria-label="Main navigation">
+        <div class="container nav-inner">
+          <a href="index.html" class="brand" aria-label="Ali Sher home">
+            <span class="brand-bracket">{</span>
+            <span class="brand-name">Ali Sher</span>
+            <span class="brand-bracket">}</span>
+          </a>
 
-    <nav class="navbar">
-      <div class="container">
-        <div class="nav-brand">
-          <span class="logo">{</span>
-          <span class="logo-text">Atif</span>
-          <span class="logo">}</span>
-          <span class="cursor">_</span>
-        </div>
-        <div class="nav-menu">
-          <button class="nav-toggle" aria-label="Toggle navigation">
+          <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">
             <i class="fas fa-bars"></i>
           </button>
-          <ul class="nav-links">
-            <li><a href="index.html#home" class="nav-link"><span class="nav-number">01.</span> Home</a></li>
-            <li><a href="index.html#about" class="nav-link"><span class="nav-number">02.</span> About</a></li>
-            <li><a href="index.html#skills" class="nav-link"><span class="nav-number">03.</span> Skills</a></li>
-            <li><a href="projects.html" class="nav-link active"><span class="nav-number">04.</span> Projects</a></li>
-            <li><a href="index.html#contact" class="nav-link"><span class="nav-number">05.</span> Contact</a></li>
+
+          <ul class="nav-links" id="main-menu">
+            <li><a class="nav-link" href="index.html#home"><span>01.</span> Home</a></li>
+            <li><a class="nav-link" href="index.html#about"><span>02.</span> About</a></li>
+            <li><a class="nav-link" href="index.html#skills"><span>03.</span> Skills</a></li>
+            <li><a class="nav-link active" href="projects.html"><span>04.</span> Projects</a></li>
+            <li><a class="nav-link" href="index.html#contact"><span>05.</span> Contact</a></li>
           </ul>
         </div>
-      </div>
-    </nav>
+      </nav>
+    </header>
 
     <main>
-      <section class="hero" id="projects">
-        <div class="container hero-grid">
-          <div class="hero-content">
-            <div class="code-line">
-              <span class="code-comment">// Featured Work</span>
-            </div>
-            <h1 class="hero-title">
-              <span class="line-1">All Projects</span>
-              <span class="line-2">Backend systems &amp; APIs</span>
-            </h1>
-            <p class="lead">
-              A selection of real-world backend systems, automation pipelines, and scalable
-              APIs built with Python, FastAPI, Django, and Flask.
+      <section class="section projects-hero" id="projects-home">
+        <div class="container projects-hero-layout reveal">
+          <article>
+            <p class="kicker">Portfolio Archive</p>
+            <h1 class="hero-title"><span class="gradient-text">All Projects</span></h1>
+            <p class="hero-lead">
+              A curated collection of backend systems and automation products built by Ali Sher, focused on scalable
+              architecture and strong software fundamentals.
             </p>
             <div class="hero-actions">
-              <a class="btn primary pulse" href="index.html#contact">
-                <i class="fas fa-paper-plane"></i>
-                Hire Me
+              <a class="btn btn-primary glass prominent-home" href="index.html">
+                <i class="fas fa-arrow-left"></i> Back to Home
               </a>
-              <a class="btn ghost" href="index.html">
-                <i class="fas fa-arrow-left"></i>
-                Back to Home
-              </a>
+              <a class="btn btn-ghost glass" href="index.html#contact"><i class="fas fa-paper-plane"></i> Start a Project</a>
             </div>
-          </div>
-          <div class="hero-visual">
-            <div class="hero-image">
-              <img class="hero-photo" src="assets/images/setup.png" alt="Workspace setup" />
-            </div>
-          </div>
+          </article>
+          <aside class="glass projects-hero-aside">
+            <h3>Delivery Focus</h3>
+            <ul>
+              <li>API performance and reliability</li>
+              <li>Clean architecture and maintainability</li>
+              <li>Async workflows and automation</li>
+              <li>Database-first backend optimization</li>
+            </ul>
+          </aside>
         </div>
       </section>
 
-      <section class="section">
+      <section class="section reveal" id="all-projects">
         <div class="container">
-          <div class="section-header">
-            <h2 class="section-title">
-              <span class="section-number">04.</span> Projects
-            </h2>
-            <div class="section-line"></div>
-          </div>
-          <div class="projects-grid">
-            <article class="project-card">
+          <header class="section-head">
+            <p class="section-index">04.</p>
+            <h2>Project Grid</h2>
+          </header>
+
+          <div class="projects-masonry">
+            <article class="project-card glass project-lift">
               <img class="project-thumb" src="assets/images/pak_trv.png" alt="Pakistan Traveling Assistant" />
-              <div class="project-header">
-                <div class="project-icon">
-                  <i class="fas fa-plane"></i>
-                </div>
-                <div class="project-links">
-                  <a href="https://github.com/Alisher095" target="_blank" class="project-link">
-                    <i class="fab fa-github"></i>
-                  </a>
-                </div>
+              <div class="project-top">
+                <span class="project-icon"><i class="fas fa-plane"></i></span>
+                <a href="https://github.com/Alisher095" target="_blank" rel="noreferrer" class="project-link"><i class="fab fa-github"></i></a>
               </div>
               <h3>Pakistan Traveling Assistant</h3>
-              <p class="project-description">
-                A backend-driven travel assistance platform providing destination information,
-                trip planning logic, and travel recommendations tailored for Pakistan.
-              </p>
-              <div class="project-tech">
-                <span>Python</span>
-                <span>FastAPI</span>
-                <span>PostgreSQL</span>
-              </div>
-              <div class="project-footer">
-                <span class="project-status">
-                  <span class="status-dot active"></span>
-                  Backend Complete
-                </span>
-              </div>
+              <p class="project-description">Destination recommendation and itinerary backend with real-time processing and API-first design.</p>
+              <div class="project-tech"><span>Python</span><span>FastAPI</span><span>PostgreSQL</span><span>Redis</span></div>
             </article>
 
-            <article class="project-card">
+            <article class="project-card glass project-lift tall-card">
               <img class="project-thumb" src="assets/images/ems.png" alt="Event Management System" />
-              <div class="project-header">
-                <div class="project-icon">
-                  <i class="fas fa-calendar-alt"></i>
-                </div>
-                <div class="project-links">
-                  <a href="https://github.com/Alisher095" target="_blank" class="project-link">
-                    <i class="fab fa-github"></i>
-                  </a>
-                </div>
+              <div class="project-top">
+                <span class="project-icon"><i class="fas fa-calendar-check"></i></span>
+                <a href="https://github.com/Alisher095" target="_blank" rel="noreferrer" class="project-link"><i class="fab fa-github"></i></a>
               </div>
               <h3>Event Management System</h3>
-              <p class="project-description">
-                A complete event management system for creating, managing, and tracking events,
-                attendees, and registrations with role-based access and admin controls.
-              </p>
-              <div class="project-tech">
-                <span>Python</span>
-                <span>Django</span>
-                <span>SQLite</span>
-              </div>
-              <div class="project-footer">
-                <span class="project-status">
-                  <span class="status-dot active"></span>
-                  Production Ready
-                </span>
-              </div>
+              <p class="project-description">Enterprise-style event management backend with role permissions, notifications, and data workflows.</p>
+              <div class="project-tech"><span>Python</span><span>Django</span><span>PostgreSQL</span><span>Celery</span></div>
             </article>
 
-            <article class="project-card">
+            <article class="project-card glass project-lift">
               <img class="project-thumb" src="assets/images/automated_lectures.png" alt="Automated Lectures System" />
-              <div class="project-header">
-                <div class="project-icon">
-                  <i class="fas fa-chalkboard-teacher"></i>
-                </div>
-                <div class="project-links">
-                  <a href="https://github.com/Alisher095" target="_blank" class="project-link">
-                    <i class="fab fa-github"></i>
-                  </a>
-                </div>
+              <div class="project-top">
+                <span class="project-icon"><i class="fas fa-robot"></i></span>
+                <a href="https://github.com/Alisher095" target="_blank" rel="noreferrer" class="project-link"><i class="fab fa-github"></i></a>
               </div>
               <h3>Automated Lectures System</h3>
-              <p class="project-description">
-                An automation-based system for scheduling, managing, and delivering recorded or
-                live lectures, reducing manual coordination for educators and institutions.
-              </p>
-              <div class="project-tech">
-                <span>Python</span>
-                <span>Flask</span>
-                <span>SQLite</span>
-              </div>
-              <div class="project-footer">
-                <span class="project-status">
-                  <span class="status-dot active"></span>
-                  In Development
-                </span>
-              </div>
+              <p class="project-description">Smart scheduling, content dispatch, and analytics for lecture automation in education workflows.</p>
+              <div class="project-tech"><span>Python</span><span>Flask</span><span>SQLite</span><span>ML</span></div>
             </article>
 
-            <article class="project-card">
+            <article class="project-card glass project-lift">
               <img class="project-thumb" src="assets/images/kidicode.png" alt="Kids Coding LMS" />
-              <div class="project-header">
-                <div class="project-icon">
-                  <i class="fas fa-child"></i>
-                </div>
-                <div class="project-links">
-                  <a href="https://github.com/Alisher095" target="_blank" class="project-link">
-                    <i class="fab fa-github"></i>
-                  </a>
-                </div>
+              <div class="project-top">
+                <span class="project-icon"><i class="fas fa-child"></i></span>
+                <a href="https://github.com/Alisher095" target="_blank" rel="noreferrer" class="project-link"><i class="fab fa-github"></i></a>
               </div>
               <h3>Kids Coding LMS</h3>
-              <p class="project-description">
-                A learning management system designed for kids to learn coding through structured
-                lessons, progress tracking, and interactive content.
-              </p>
-              <div class="project-tech">
-                <span>Python</span>
-                <span>Django</span>
-                <span>PostgreSQL</span>
-              </div>
-              <div class="project-footer">
-                <span class="project-status">
-                  <span class="status-dot active"></span>
-                  Backend Complete
-                </span>
-              </div>
+              <p class="project-description">Learning backend for coding education, including progress tracking, assessments, and content delivery APIs.</p>
+              <div class="project-tech"><span>Python</span><span>Django</span><span>PostgreSQL</span></div>
             </article>
 
-            <article class="project-card">
+            <article class="project-card glass project-lift tall-card">
               <img class="project-thumb" src="assets/images/lucky.png" alt="Lucky Draw System" />
-              <div class="project-header">
-                <div class="project-icon">
-                  <i class="fas fa-dice"></i>
-                </div>
-                <div class="project-links">
-                  <a href="https://github.com/Alisher095" target="_blank" class="project-link">
-                    <i class="fab fa-github"></i>
-                  </a>
-                </div>
+              <div class="project-top">
+                <span class="project-icon"><i class="fas fa-dice"></i></span>
+                <a href="https://github.com/Alisher095" target="_blank" rel="noreferrer" class="project-link"><i class="fab fa-github"></i></a>
               </div>
               <h3>Lucky Draw System</h3>
-              <p class="project-description">
-                A web-based lucky draw application for managing participants and generating fair,
-                randomized results with admin control.
-              </p>
-              <div class="project-tech">
-                <span>PHP</span>
-                <span>JavaScript</span>
-                <span>MySQL</span>
-              </div>
-              <div class="project-footer">
-                <span class="project-status">
-                  <span class="status-dot active"></span>
-                  Production Ready
-                </span>
-              </div>
+              <p class="project-description">Fair participant randomization backend with admin controls, validation layers, and transparent selection logic.</p>
+              <div class="project-tech"><span>PHP</span><span>JavaScript</span><span>MySQL</span></div>
             </article>
 
-            <article class="project-card">
+            <article class="project-card glass project-lift">
               <img class="project-thumb" src="assets/images/trace.png" alt="Trace Fake" />
-              <div class="project-header">
-                <div class="project-icon">
-                  <i class="fas fa-shield-alt"></i>
-                </div>
-                <div class="project-links">
-                  <a href="https://github.com/Alisher095" target="_blank" class="project-link">
-                    <i class="fab fa-github"></i>
-                  </a>
-                </div>
+              <div class="project-top">
+                <span class="project-icon"><i class="fas fa-shield"></i></span>
+                <a href="https://github.com/Alisher095" target="_blank" rel="noreferrer" class="project-link"><i class="fab fa-github"></i></a>
               </div>
               <h3>Trace Fake</h3>
-              <p class="project-description">
-                A verification system designed to detect and trace fake or duplicate entries
-                using backend validation logic and data comparison techniques.
-              </p>
-              <div class="project-tech">
-                <span>Python</span>
-                <span>FastAPI</span>
-                <span>PostgreSQL</span>
-              </div>
-              <div class="project-footer">
-                <span class="project-status">
-                  <span class="status-dot active"></span>
-                  Backend Complete
-                </span>
-              </div>
+              <p class="project-description">Fraud and duplicate detection backend using verification pipelines and consistency rules.</p>
+              <div class="project-tech"><span>Python</span><span>FastAPI</span><span>PostgreSQL</span></div>
             </article>
 
-            <article class="project-card">
+            <article class="project-card glass project-lift">
               <img class="project-thumb" src="assets/images/job.png" alt="Online Job Portal" />
-              <div class="project-header">
-                <div class="project-icon">
-                  <i class="fas fa-briefcase"></i>
-                </div>
-                <div class="project-links">
-                  <a href="https://github.com/Alisher095" target="_blank" class="project-link">
-                    <i class="fab fa-github"></i>
-                  </a>
-                </div>
+              <div class="project-top">
+                <span class="project-icon"><i class="fas fa-briefcase"></i></span>
+                <a href="https://github.com/Alisher095" target="_blank" rel="noreferrer" class="project-link"><i class="fab fa-github"></i></a>
               </div>
               <h3>Online Job Portal</h3>
-              <p class="project-description">
-                A job portal platform connecting employers and job seekers with job listings,
-                applications, and profile management.
-              </p>
-              <div class="project-tech">
-                <span>Python</span>
-                <span>Django</span>
-                <span>PostgreSQL</span>
-              </div>
-              <div class="project-footer">
-                <span class="project-status">
-                  <span class="status-dot active"></span>
-                  Backend Complete
-                </span>
-              </div>
+              <p class="project-description">Scalable backend connecting employers and candidates with application workflows and profile systems.</p>
+              <div class="project-tech"><span>Python</span><span>Django</span><span>PostgreSQL</span></div>
             </article>
 
-            <article class="project-card">
+            <article class="project-card glass project-lift">
               <img class="project-thumb" src="assets/images/logo.png" alt="Online IoT Store" />
-              <div class="project-header">
-                <div class="project-icon">
-                  <i class="fas fa-microchip"></i>
-                </div>
-                <div class="project-links">
-                  <a href="https://github.com/Alisher095" target="_blank" class="project-link">
-                    <i class="fab fa-github"></i>
-                  </a>
-                </div>
+              <div class="project-top">
+                <span class="project-icon"><i class="fas fa-microchip"></i></span>
+                <a href="https://github.com/Alisher095" target="_blank" rel="noreferrer" class="project-link"><i class="fab fa-github"></i></a>
               </div>
               <h3>Online IoT Store</h3>
-              <p class="project-description">
-                An e-commerce backend for IoT products featuring product management, orders, and
-                inventory handling with scalable architecture.
-              </p>
-              <div class="project-tech">
-                <span>Python</span>
-                <span>FastAPI</span>
-                <span>PostgreSQL</span>
-              </div>
-              <div class="project-footer">
-                <span class="project-status">
-                  <span class="status-dot active"></span>
-                  Backend Complete
-                </span>
-              </div>
+              <p class="project-description">E-commerce backend for IoT devices with inventory management, order processing, and catalog APIs.</p>
+              <div class="project-tech"><span>Python</span><span>FastAPI</span><span>PostgreSQL</span></div>
             </article>
 
-            <article class="project-card">
+            <article class="project-card glass project-lift">
               <img class="project-thumb" src="assets/images/job2.png" alt="Alumni Connect Jobs Platform" />
-              <div class="project-header">
-                <div class="project-icon">
-                  <i class="fas fa-users"></i>
-                </div>
-                <div class="project-links">
-                  <a href="https://github.com/Alisher095" target="_blank" class="project-link">
-                    <i class="fab fa-github"></i>
-                  </a>
-                </div>
+              <div class="project-top">
+                <span class="project-icon"><i class="fas fa-users"></i></span>
+                <a href="https://github.com/Alisher095" target="_blank" rel="noreferrer" class="project-link"><i class="fab fa-github"></i></a>
               </div>
               <h3>Alumni Connect Jobs Platform</h3>
-              <p class="project-description">
-                A networking and job-sharing platform for alumni to connect, post opportunities,
-                and collaborate professionally.
-              </p>
-              <div class="project-tech">
-                <span>Python</span>
-                <span>Django</span>
-                <span>SQLite</span>
-              </div>
-              <div class="project-footer">
-                <span class="project-status">
-                  <span class="status-dot active"></span>
-                  Backend Complete
-                </span>
-              </div>
+              <p class="project-description">Community hiring and networking backend where alumni share opportunities and collaborate professionally.</p>
+              <div class="project-tech"><span>Python</span><span>Django</span><span>SQLite</span></div>
             </article>
 
-            <article class="project-card">
+            <article class="project-card glass project-lift">
               <img class="project-thumb" src="assets/images/clinic.png" alt="Clinic Management System" />
-              <div class="project-header">
-                <div class="project-icon">
-                  <i class="fas fa-clinic-medical"></i>
-                </div>
-                <div class="project-links">
-                  <a href="https://github.com/Alisher095" target="_blank" class="project-link">
-                    <i class="fab fa-github"></i>
-                  </a>
-                </div>
+              <div class="project-top">
+                <span class="project-icon"><i class="fas fa-hospital"></i></span>
+                <a href="https://github.com/Alisher095" target="_blank" rel="noreferrer" class="project-link"><i class="fab fa-github"></i></a>
               </div>
               <h3>Clinic Management System</h3>
-              <p class="project-description">
-                A backend-centric clinic management system for handling patients, appointments,
-                medical records, and billing workflows.
-              </p>
-              <div class="project-tech">
-                <span>Python</span>
-                <span>Django</span>
-                <span>PostgreSQL</span>
-              </div>
-              <div class="project-footer">
-                <span class="project-status">
-                  <span class="status-dot active"></span>
-                  Backend Complete
-                </span>
-              </div>
+              <p class="project-description">Patient, appointment, and record handling backend for clinics with workflow automation and reporting.</p>
+              <div class="project-tech"><span>Python</span><span>Django</span><span>PostgreSQL</span></div>
             </article>
 
-            <article class="project-card">
+            <article class="project-card glass project-lift">
               <img class="project-thumb" src="assets/images/access.png" alt="Access Form" />
-              <div class="project-header">
-                <div class="project-icon">
-                  <i class="fas fa-universal-access"></i>
-                </div>
-                <div class="project-links">
-                  <a href="https://github.com/Alisher095" target="_blank" class="project-link">
-                    <i class="fab fa-github"></i>
-                  </a>
-                </div>
+              <div class="project-top">
+                <span class="project-icon"><i class="fas fa-universal-access"></i></span>
+                <a href="https://github.com/Alisher095" target="_blank" rel="noreferrer" class="project-link"><i class="fab fa-github"></i></a>
               </div>
               <h3>Access Form</h3>
-              <p class="project-description">
-                A survey-driven responsibility form capturing assistive needs for disabled users.
-                It routes the submissions to regional coordinators and monitors follow-up.
-              </p>
-              <div class="project-tech">
-                <span>TypeScript</span>
-                <span>React</span>
-                <span>Firebase</span>
-              </div>
-              <div class="project-footer">
-                <span class="project-status">
-                  <span class="status-dot active"></span>
-                  User Study Ready
-                </span>
-              </div>
+              <p class="project-description">Secure backend for registration and access workflows, including validation and role-based permissions.</p>
+              <div class="project-tech"><span>Python</span><span>Flask</span><span>SQLite</span></div>
             </article>
-
-            <article class="project-card">
-              <img class="project-thumb" src="assets/images/art.png" alt="Art Gallery" />
-              <div class="project-header">
-                <div class="project-icon">
-                  <i class="fas fa-palette"></i>
-                </div>
-                <div class="project-links">
-                  <a href="https://github.com/Alisher095" target="_blank" class="project-link">
-                    <i class="fab fa-github"></i>
-                  </a>
-                </div>
-              </div>
-              <h3>Art Gallery</h3>
-              <p class="project-description">
-                A curated gallery portal where artists can upload collections, schedule exhibitions,
-                and automatically generate shareable promotional posters.
-              </p>
-              <div class="project-tech">
-                <span>Next.js</span>
-                <span>Sanity</span>
-                <span>Vercel</span>
-              </div>
-              <div class="project-footer">
-                <span class="project-status">
-                  <span class="status-dot active"></span>
-                  Live Preview
-                </span>
-              </div>
-            </article>
-
-            <article class="project-card">
-              <img class="project-thumb" src="assets/images/fitness.png" alt="Fitness Tracking" />
-              <div class="project-header">
-                <div class="project-icon">
-                  <i class="fas fa-heartbeat"></i>
-                </div>
-                <div class="project-links">
-                  <a href="https://github.com/Alisher095" target="_blank" class="project-link">
-                    <i class="fab fa-github"></i>
-                  </a>
-                </div>
-              </div>
-              <h3>Fitness Tracking</h3>
-              <p class="project-description">
-                A trainer-friendly fitness tracking app with goal-setting, workout logging, and
-                biometric syncing from wearable devices.
-              </p>
-              <div class="project-tech">
-                <span>Flutter</span>
-                <span>Node.js</span>
-                <span>MongoDB</span>
-              </div>
-              <div class="project-footer">
-                <span class="project-status">
-                  <span class="status-dot"></span>
-                  Prototype
-                </span>
-              </div>
-            </article>
-
-            <article class="project-card">
-              <img class="project-thumb" src="assets/images/heart.png" alt="Heart Disease Predictor" />
-              <div class="project-header">
-                <div class="project-icon">
-                  <i class="fas fa-diagnoses"></i>
-                </div>
-                <div class="project-links">
-                  <a href="https://github.com/Alisher095" target="_blank" class="project-link">
-                    <i class="fab fa-github"></i>
-                  </a>
-                </div>
-              </div>
-              <h3>Heart Disease Predictor</h3>
-              <p class="project-description">
-                An AI/ML service analyzing patient vitals and lab data to produce early warnings for
-                cardiac risks with explainable feature insights.
-              </p>
-              <div class="project-tech">
-                <span>Python</span>
-                <span>scikit-learn</span>
-                <span>FastAPI</span>
-              </div>
-              <div class="project-footer">
-                <span class="project-status">
-                  <span class="status-dot"></span>
-                  Data Ready
-                </span>
-              </div>
-            </article>
-
-            <article class="project-card">
-              <img class="project-thumb" src="assets/images/store.png" alt="Online Mega Store" />
-              <div class="project-header">
-                <div class="project-icon">
-                  <i class="fas fa-store"></i>
-                </div>
-                <div class="project-links">
-                  <a href="https://github.com/Alisher095" target="_blank" class="project-link">
-                    <i class="fab fa-github"></i>
-                  </a>
-                </div>
-              </div>
-              <h3>Online Mega Store</h3>
-              <p class="project-description">
-                A multi-tenant e-commerce backend handling catalogs, orders, payments, and
-                personalized recommendations with multi-currency support.
-              </p>
-              <div class="project-tech">
-                <span>Go</span>
-                <span>gRPC</span>
-                <span>Redis</span>
-              </div>
-              <div class="project-footer">
-                <span class="project-status">
-                  <span class="status-dot"></span>
-                  API Gateway
-                </span>
-              </div>
-            </article>
-
           </div>
         </div>
       </section>
     </main>
 
-    <footer class="footer">
-      <div class="container">
-        <div class="footer-content">
-          <div class="footer-brand">
-            <span class="logo">{</span>
-            <span class="logo-text">Atif</span>
-            <span class="logo">}</span>
-            <span class="cursor">_</span>
-          </div>
-          <p class="footer-tagline">
-            Building the backend that powers tomorrow's applications
-          </p>
-          <div class="footer-social">
-            <a href="https://github.com/Alisher095" target="_blank" class="social-link">
-              <i class="fab fa-github"></i>
-            </a>
-            <a href="https://www.linkedin.com/in/atifawan095/" target="_blank" class="social-link">
-              <i class="fab fa-linkedin"></i>
-            </a>
-            <a href="https://twitter.com" target="_blank" class="social-link">
-              <i class="fab fa-twitter"></i>
-            </a>
-            <a href="https://stackoverflow.com" target="_blank" class="social-link">
-              <i class="fab fa-stack-overflow"></i>
-            </a>
-          </div>
-          <div class="footer-bottom">
-            <p>&copy; 2026 Muhammad Atif. All rights reserved.</p>
-            <p>Built with <i class="fas fa-heart"></i> and THD</p>
-          </div>
+    <footer class="site-footer">
+      <div class="container footer-inner glass">
+        <div class="footer-brand">
+          <span class="brand-bracket">{</span>
+          <span class="brand-name">Ali Sher</span>
+          <span class="brand-bracket">}</span>
         </div>
+        <p>Backend systems that are practical, resilient, and ready for scale.</p>
+        <div class="footer-links">
+          <a href="https://github.com/Alisher095" target="_blank" rel="noreferrer"><i class="fab fa-github"></i></a>
+          <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer"><i class="fab fa-linkedin"></i></a>
+        </div>
+        <p class="copyright">&copy; 2026 Ali Sher</p>
       </div>
     </footer>
 

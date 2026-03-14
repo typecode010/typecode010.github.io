@@ -3,527 +3,380 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Muhammad Atif — backend-focused Python developer building scalable APIs, automation, and production-ready systems." />
-    <title>Muhammad Atif | Backend Python Developer</title>
+    <meta
+      name="description"
+      content="Ali Sher - backend-focused Python developer building scalable APIs, automation systems, and production-ready platforms."
+    />
+    <title>Ali Sher | Backend Python Developer</title>
     <link rel="stylesheet" href="assets/css/style.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
     <script src="assets/js/main.js" defer></script>
   </head>
-  <body>
-    <!-- Animated Background Elements -->
-    <div class="animated-bg">
-      <div class="grid-dots"></div>
-      <div class="floating-shapes">
-        <div class="shape shape-1"></div>
-        <div class="shape shape-2"></div>
-        <div class="shape shape-3"></div>
-        <div class="shape shape-4"></div>
-      </div>
+  <body data-page="home">
+    <div class="noise-overlay" aria-hidden="true"></div>
+    <div class="animated-bg" aria-hidden="true">
+      <span class="orb orb-cyan"></span>
+      <span class="orb orb-purple"></span>
+      <span class="grid-layer"></span>
     </div>
 
-    <!-- Terminal Cursor Effect -->
-    <div class="terminal-cursor"></div>
+    <header class="site-header">
+      <nav class="navbar glass" aria-label="Main navigation">
+        <div class="container nav-inner">
+          <a href="#home" class="brand" aria-label="Ali Sher home">
+            <span class="brand-bracket">{</span>
+            <span class="brand-name">Ali Sher</span>
+            <span class="brand-bracket">}</span>
+          </a>
 
-    <!-- Navigation -->
-    <nav class="navbar">
-      <div class="container">
-        <div class="nav-brand">
-          <span class="logo">{</span>
-          <span class="logo-text">Atif</span>
-          <span class="logo">}</span>
-          <span class="cursor">_</span>
-        </div>
-        <div class="nav-menu">
-          <button class="nav-toggle" aria-label="Toggle navigation">
+          <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">
             <i class="fas fa-bars"></i>
           </button>
-          <ul class="nav-links">
-            <li><a href="#home" class="nav-link active"><span class="nav-number">01.</span> Home</a></li>
-            <li><a href="#about" class="nav-link"><span class="nav-number">02.</span> About</a></li>
-            <li><a href="#skills" class="nav-link"><span class="nav-number">03.</span> Skills</a></li>
-            <li><a href="#projects" class="nav-link"><span class="nav-number">04.</span> Projects</a></li>
-            <li><a href="#contact" class="nav-link"><span class="nav-number">05.</span> Contact</a></li>
+
+          <ul class="nav-links" id="main-menu">
+            <li><a class="nav-link active" href="#home"><span>01.</span> Home</a></li>
+            <li><a class="nav-link" href="#about"><span>02.</span> About</a></li>
+            <li><a class="nav-link" href="#skills"><span>03.</span> Skills</a></li>
+            <li><a class="nav-link" href="#projects"><span>04.</span> Projects</a></li>
+            <li><a class="nav-link" href="#contact"><span>05.</span> Contact</a></li>
+            <li><a class="nav-link nav-projects-link" href="projects.html">All Projects</a></li>
           </ul>
         </div>
-      </div>
-    </nav>
+      </nav>
+    </header>
 
     <main>
-      <!-- Hero Section -->
-      <section class="hero" id="home">
-        <div class="container hero-grid">
-          <div class="hero-content">
-            <div class="code-line">
-              <span class="code-comment">// Backend Python Developer</span>
-            </div>
+      <section class="hero section" id="home">
+        <div class="container hero-layout">
+          <article class="hero-copy reveal">
+            <p class="kicker">Backend Python Developer</p>
             <h1 class="hero-title">
-              <span class="line-1">Hi, I'm <span class="highlight">Muhammad Atif</span></span>
-              <span class="line-2">I build <span class="typewriter" data-words='["scalable APIs","automation systems","production backends","reliable services"]'></span></span>
+              Hi, I am <span class="gradient-text">Ali Sher</span>
             </h1>
-            <p class="lead">
-              Specializing in Python, FastAPI, Django, and PostgreSQL. I architect robust backend systems that scale efficiently and solve real-world problems.
+            <p class="hero-subtitle">
+              I design and ship robust backend systems with
+              <span class="typewriter" data-words='["FastAPI microservices","Django architectures","automation pipelines","production APIs"]'></span>
+            </p>
+            <p class="hero-lead">
+              Specialized in Python, FastAPI, Django, Flask, and PostgreSQL with a sharp focus on performance,
+              scalability, and maintainable system design.
             </p>
             <div class="hero-actions">
-              <a class="btn primary pulse" href="#projects">
-                <i class="fas fa-code"></i>
-                View Projects
-              </a>
-              <a class="btn ghost" href="assets/documents/resume.pdf" download>
-                <i class="fas fa-download"></i>
-                Download CV
-              </a>
-              <a class="btn ghost" href="#contact">
-                <i class="fas fa-paper-plane"></i>
-                Contact Me
-              </a>
+              <a class="btn btn-primary glass" href="#projects"><i class="fas fa-code"></i> View Projects</a>
+              <a class="btn btn-ghost glass" href="#contact"><i class="fas fa-briefcase"></i> Hire Me</a>
+              <a class="btn btn-ghost glass" href="#contact"><i class="fas fa-paper-plane"></i> Contact</a>
             </div>
             <div class="hero-stats">
-              <div class="stat">
-                <span class="stat-number">3+</span>
-                <span class="stat-label">Years Experience</span>
+              <div class="stat glass">
+                <strong>3+</strong>
+                <span>Years Experience</span>
               </div>
-              <div class="stat">
-                <span class="stat-number">15+</span>
-                <span class="stat-label">Projects</span>
+              <div class="stat glass">
+                <strong>20+</strong>
+                <span>Projects Delivered</span>
               </div>
-              <div class="stat">
-                <span class="stat-number">100%</span>
-                <span class="stat-label">Backend Focus</span>
-              </div>
-            </div>
-          </div>
-          <div class="hero-visual">
-            <div class="hero-image">
-              <img class="hero-photo" src="assets/images/me.png" alt="Muhammad Atif" />
-              <div class="code-window">
-                <div class="window-header">
-                  <div class="window-buttons">
-                    <span class="close"></span>
-                    <span class="minimize"></span>
-                    <span class="maximize"></span>
-                  </div>
-                  <div class="window-title">backend.py</div>
-                </div>
-                <div class="window-content">
-                  <pre><code class="python-code typing" id="backend-code"></code></pre>
-                  <script type="text/plain" id="backend-code-source">
-        from fastapi import FastAPI
-        from typing import List, Optional
-        from models import User, Project
-
-        app = FastAPI()
-
-        @app.get("/api/projects")
-        async def get_projects():
-          """Fetch all projects"""
-          return await Project.all()
-
-        @app.post("/api/auth/login")
-        async def login(user: User):
-          """User authentication"""
-          return {"token": "jwt_token"}
-
-        @app.get("/api/health")
-        async def health_check():
-          """System health check"""
-          return {"status": "healthy"}
-                  </script>
-                </div>
+              <div class="stat glass">
+                <strong>99.9%</strong>
+                <span>API Reliability Goal</span>
               </div>
             </div>
-          </div>
+          </article>
+
+          <article class="hero-terminal reveal">
+            <div class="code-window glass" role="img" aria-label="Animated backend code window">
+              <header class="code-window-header">
+                <div class="mac-controls" aria-hidden="true">
+                  <span class="dot red"></span>
+                  <span class="dot yellow"></span>
+                  <span class="dot green"></span>
+                </div>
+                <p class="file-name">vscode : services/api_gateway.py</p>
+              </header>
+              <div class="code-window-body">
+                <pre><code id="backend-code" class="python-code"></code></pre>
+                <script type="text/plain" id="backend-code-source">
+from fastapi import APIRouter, Depends, HTTPException
+from pydantic import BaseModel
+from services.analytics import emit_metric
+from core.auth import get_current_user
+
+router = APIRouter(prefix="/v1", tags=["gateway"])
+
+class DeployRequest(BaseModel):
+    service: str
+    environment: str
+
+@router.post("/deploy")
+async def deploy_service(payload: DeployRequest, user=Depends(get_current_user)):
+    if user.role not in {"admin", "devops"}:
+        raise HTTPException(status_code=403, detail="insufficient scope")
+
+    emit_metric("deploy_started", payload.service)
+    return {
+        "message": "deployment queued",
+        "service": payload.service,
+        "environment": payload.environment,
+        "requested_by": user.username,
+    }
+                </script>
+              </div>
+            </div>
+          </article>
         </div>
       </section>
 
-      <!-- About Section -->
-      <section class="section" id="about">
+      <section class="section reveal" id="about">
         <div class="container">
-          <div class="section-header">
-            <h2 class="section-title">
-              <span class="section-number">02.</span> About Me
-            </h2>
-            <div class="section-line"></div>
-          </div>
+          <header class="section-head">
+            <p class="section-index">02.</p>
+            <h2>About Ali Sher</h2>
+          </header>
           <div class="about-grid">
-            <div class="about-content">
-              <h3>Backend Architect & Problem Solver</h3>
+            <article class="glass about-card">
+              <h3>Backend Architect and Problem Solver</h3>
               <p>
-                I'm a passionate backend developer with a strong focus on Python ecosystem. 
-                I specialize in designing and implementing scalable, maintainable backend 
-                systems that power modern web applications.
+                I engineer resilient backend platforms that support real products at scale. From API contracts to
+                database performance and cloud deployments, I focus on clean architecture and measurable outcomes.
               </p>
               <p>
-                My expertise spans across API development, database design, system 
-                architecture, and DevOps practices. I believe in writing clean, 
-                efficient code and following best practices for production-ready systems.
+                My process combines practical system design with shipping discipline: testability, clear interfaces,
+                and observability-first backend development.
               </p>
-              <div class="about-details">
-                <div class="detail-item">
-                  <i class="fas fa-map-marker-alt"></i>
-                  <div>
-                    <strong>Location</strong>
-                    <span>Khushab, Punjab, Pakistan</span>
-                  </div>
-                </div>
-                <div class="detail-item">
-                  <i class="fas fa-envelope"></i>
-                  <div>
-                    <strong>Email</strong>
-                    <a href="mailto:atifawanati@gmail.com">atifawanati@gmail.com</a>
-                  </div>
-                </div>
-                <div class="detail-item">
-                  <i class="fas fa-laptop-code"></i>
-                  <div>
-                    <strong>Focus</strong>
-                    <span>Backend Development</span>
-                  </div>
-                </div>
+              <ul class="about-meta">
+                <li><i class="fas fa-location-dot"></i> Lahore, Pakistan</li>
+                <li><i class="fas fa-envelope"></i> <a href="mailto:scapegoat995@gmail.com">scapegoat995@gmail.com</a></li>
+                <li><i class="fas fa-server"></i> Backend Development Focus</li>
+              </ul>
+            </article>
+            <aside class="glass stack-card" aria-label="Tech stack highlights">
+              <h3>Core Stack</h3>
+              <div class="stack-pills">
+                <span>Python</span>
+                <span>FastAPI</span>
+                <span>Django</span>
+                <span>Flask</span>
+                <span>PostgreSQL</span>
+                <span>Redis</span>
+                <span>Docker</span>
+                <span>Linux</span>
+                <span>AWS</span>
               </div>
-            </div>
-            <div class="about-visual">
-              <img class="about-photo" src="assets/images/setup.png" alt="Workspace setup" />
-              <div class="tech-stack">
-                <div class="stack-item" data-tooltip="Python">
-                  <i class="fab fa-python"></i>
-                </div>
-                <div class="stack-item" data-tooltip="FastAPI">
-                  <i class="fas fa-bolt"></i>
-                </div>
-                <div class="stack-item" data-tooltip="Django">
-                  <i class="fab fa-django"></i>
-                </div>
-                <div class="stack-item" data-tooltip="PostgreSQL">
-                  <i class="fas fa-database"></i>
-                </div>
-                <div class="stack-item" data-tooltip="Docker">
-                  <i class="fab fa-docker"></i>
-                </div>
-                <div class="stack-item" data-tooltip="Git">
-                  <i class="fab fa-git-alt"></i>
-                </div>
-                <div class="stack-item" data-tooltip="Linux">
-                  <i class="fab fa-linux"></i>
-                </div>
-                <div class="stack-item" data-tooltip="AWS">
-                  <i class="fab fa-aws"></i>
-                </div>
-              </div>
-            </div>
+            </aside>
           </div>
         </div>
       </section>
 
-      <!-- Skills Section -->
-      <section class="section dark" id="skills">
+      <section class="section reveal" id="skills">
         <div class="container">
-          <div class="section-header">
-            <h2 class="section-title">
-              <span class="section-number">03.</span> Technical Skills
-            </h2>
-            <div class="section-line"></div>
-          </div>
+          <header class="section-head">
+            <p class="section-index">03.</p>
+            <h2>Technical Skills</h2>
+          </header>
           <div class="skills-grid">
-            <div class="skill-category">
-              <div class="category-header">
-                <i class="fas fa-server"></i>
-                <h3>Backend Development</h3>
-              </div>
+            <article class="glass skill-card">
+              <h3><i class="fas fa-server"></i> Backend Development</h3>
               <div class="skill-list">
-                <div class="skill-item">
-                  <span>Python</span>
-                  <div class="skill-bar">
-                    <div class="skill-level" data-level="95"></div>
-                  </div>
+                <div class="skill-row">
+                  <p>Python</p>
+                  <span>95%</span>
+                  <div class="skill-track"><span class="skill-level" data-level="95"></span></div>
                 </div>
-                <div class="skill-item">
-                  <span>FastAPI</span>
-                  <div class="skill-bar">
-                    <div class="skill-level" data-level="90"></div>
-                  </div>
+                <div class="skill-row">
+                  <p>FastAPI</p>
+                  <span>92%</span>
+                  <div class="skill-track"><span class="skill-level" data-level="92"></span></div>
                 </div>
-                <div class="skill-item">
-                  <span>Django</span>
-                  <div class="skill-bar">
-                    <div class="skill-level" data-level="85"></div>
-                  </div>
+                <div class="skill-row">
+                  <p>Django</p>
+                  <span>88%</span>
+                  <div class="skill-track"><span class="skill-level" data-level="88"></span></div>
                 </div>
-                <div class="skill-item">
-                  <span>REST APIs</span>
-                  <div class="skill-bar">
-                    <div class="skill-level" data-level="92"></div>
-                  </div>
+                <div class="skill-row">
+                  <p>Flask</p>
+                  <span>86%</span>
+                  <div class="skill-track"><span class="skill-level" data-level="86"></span></div>
                 </div>
               </div>
-            </div>
+            </article>
 
-            <div class="skill-category">
-              <div class="category-header">
-                <i class="fas fa-database"></i>
-                <h3>Databases</h3>
-              </div>
+            <article class="glass skill-card">
+              <h3><i class="fas fa-database"></i> Databases and Queues</h3>
               <div class="skill-list">
-                <div class="skill-item">
-                  <span>PostgreSQL</span>
-                  <div class="skill-bar">
-                    <div class="skill-level" data-level="88"></div>
-                  </div>
+                <div class="skill-row">
+                  <p>PostgreSQL</p>
+                  <span>90%</span>
+                  <div class="skill-track"><span class="skill-level" data-level="90"></span></div>
                 </div>
-                <div class="skill-item">
-                  <span>MySQL</span>
-                  <div class="skill-bar">
-                    <div class="skill-level" data-level="85"></div>
-                  </div>
+                <div class="skill-row">
+                  <p>MySQL</p>
+                  <span>84%</span>
+                  <div class="skill-track"><span class="skill-level" data-level="84"></span></div>
                 </div>
-                <div class="skill-item">
-                  <span>Redis</span>
-                  <div class="skill-bar">
-                    <div class="skill-level" data-level="80"></div>
-                  </div>
+                <div class="skill-row">
+                  <p>Redis</p>
+                  <span>82%</span>
+                  <div class="skill-track"><span class="skill-level" data-level="82"></span></div>
                 </div>
-                <div class="skill-item">
-                  <span>SQLite</span>
-                  <div class="skill-bar">
-                    <div class="skill-level" data-level="90"></div>
-                  </div>
+                <div class="skill-row">
+                  <p>SQLite</p>
+                  <span>89%</span>
+                  <div class="skill-track"><span class="skill-level" data-level="89"></span></div>
                 </div>
               </div>
-            </div>
+            </article>
 
-            <div class="skill-category">
-              <div class="category-header">
-                <i class="fas fa-tools"></i>
-                <h3>Tools & DevOps</h3>
-              </div>
+            <article class="glass skill-card">
+              <h3><i class="fas fa-gears"></i> Tools and Delivery</h3>
               <div class="skill-list">
-                <div class="skill-item">
-                  <span>Docker</span>
-                  <div class="skill-bar">
-                    <div class="skill-level" data-level="85"></div>
-                  </div>
+                <div class="skill-row">
+                  <p>Docker</p>
+                  <span>87%</span>
+                  <div class="skill-track"><span class="skill-level" data-level="87"></span></div>
                 </div>
-                <div class="skill-item">
-                  <span>Git/GitHub</span>
-                  <div class="skill-bar">
-                    <div class="skill-level" data-level="92"></div>
-                  </div>
+                <div class="skill-row">
+                  <p>Git and GitHub</p>
+                  <span>93%</span>
+                  <div class="skill-track"><span class="skill-level" data-level="93"></span></div>
                 </div>
-                <div class="skill-item">
-                  <span>Linux</span>
-                  <div class="skill-bar">
-                    <div class="skill-level" data-level="87"></div>
-                  </div>
+                <div class="skill-row">
+                  <p>Linux</p>
+                  <span>88%</span>
+                  <div class="skill-track"><span class="skill-level" data-level="88"></span></div>
                 </div>
-                <div class="skill-item">
-                  <span>CI/CD</span>
-                  <div class="skill-bar">
-                    <div class="skill-level" data-level="82"></div>
-                  </div>
+                <div class="skill-row">
+                  <p>CI/CD</p>
+                  <span>84%</span>
+                  <div class="skill-track"><span class="skill-level" data-level="84"></span></div>
                 </div>
               </div>
-            </div>
+            </article>
           </div>
         </div>
       </section>
 
-      <!-- Projects Section -->
-      <section class="section" id="projects">
+      <section class="section reveal" id="projects">
         <div class="container">
-          <div class="section-header">
-            <h2 class="section-title">
-              <span class="section-number">04.</span> Featured Projects
-            </h2>
-            <a class="text-link" href="projects.html">
-              View all projects 
-              <i class="fas fa-arrow-right"></i>
-            </a>
-          </div>
+          <header class="section-head projects-head">
+            <div>
+              <p class="section-index">04.</p>
+              <h2>Featured Projects</h2>
+            </div>
+            <a class="btn btn-ghost glass" href="projects.html">View All Projects <i class="fas fa-arrow-right"></i></a>
+          </header>
+
           <div class="projects-grid" id="featured-projects-rotator" aria-live="polite">
-            <article class="project-card" data-slot="0">
+            <article class="project-card glass reveal-card" data-slot="0">
               <img class="project-thumb" src="assets/images/pak_trv.png" alt="Pakistan Traveling Assistant" />
-              <div class="project-header">
-                <div class="project-icon">
-                  <i class="fas fa-plane"></i>
-                </div>
-                <div class="project-links">
-                  <a href="https://github.com/Alisher095" target="_blank" class="project-link">
-                    <i class="fab fa-github"></i>
-                  </a>
-                </div>
+              <div class="project-top">
+                <span class="project-icon"><i class="fas fa-plane"></i></span>
+                <a href="https://github.com/Alisher095" target="_blank" rel="noreferrer" class="project-link" aria-label="Open Pakistan Traveling Assistant repository">
+                  <i class="fab fa-github"></i>
+                </a>
               </div>
               <h3>Pakistan Traveling Assistant</h3>
               <p class="project-description">
-                A comprehensive travel platform with intelligent destination recommendations, 
-                trip planning algorithms, and real-time data processing.
+                Backend-rich travel intelligence platform with recommendation engines, itinerary logic, and API-first architecture.
               </p>
               <div class="project-tech">
-                <span>Python</span>
-                <span>FastAPI</span>
-                <span>PostgreSQL</span>
-                <span>Redis</span>
+                <span>Python</span><span>FastAPI</span><span>PostgreSQL</span><span>Redis</span>
               </div>
-              <div class="project-footer">
-                <span class="project-status">
-                  <span class="status-dot active"></span>
-                  <span class="status-text">Backend Complete</span>
-                </span>
-              </div>
+              <div class="project-state"><span class="status-dot"></span><span class="status-text">Backend Complete</span></div>
             </article>
 
-            <article class="project-card" data-slot="1">
+            <article class="project-card glass reveal-card" data-slot="1">
               <img class="project-thumb" src="assets/images/image.png" alt="Event Management System" />
-              <div class="project-header">
-                <div class="project-icon">
-                  <i class="fas fa-calendar-alt"></i>
-                </div>
-                <div class="project-links">
-                  <a href="https://github.com/Alisher095" target="_blank" class="project-link">
-                    <i class="fab fa-github"></i>
-                  </a>
-                </div>
+              <div class="project-top">
+                <span class="project-icon"><i class="fas fa-calendar-check"></i></span>
+                <a href="https://github.com/Alisher095" target="_blank" rel="noreferrer" class="project-link" aria-label="Open Event Management System repository">
+                  <i class="fab fa-github"></i>
+                </a>
               </div>
               <h3>Event Management System</h3>
               <p class="project-description">
-                Full-featured event management platform with role-based access control, 
-                real-time notifications, and automated scheduling.
+                Production-ready event backend with role-based permissions, scheduling workflows, and asynchronous notifications.
               </p>
               <div class="project-tech">
-                <span>Python</span>
-                <span>Django</span>
-                <span>PostgreSQL</span>
-                <span>Celery</span>
+                <span>Python</span><span>Django</span><span>PostgreSQL</span><span>Celery</span>
               </div>
-              <div class="project-footer">
-                <span class="project-status">
-                  <span class="status-dot active"></span>
-                  <span class="status-text">Production Ready</span>
-                </span>
-              </div>
+              <div class="project-state"><span class="status-dot"></span><span class="status-text">Production Ready</span></div>
             </article>
 
-            <article class="project-card" data-slot="2">
+            <article class="project-card glass reveal-card" data-slot="2">
               <img class="project-thumb" src="assets/images/automated_lectures.png" alt="Automated Lectures System" />
-              <div class="project-header">
-                <div class="project-icon">
-                  <i class="fas fa-chalkboard-teacher"></i>
-                </div>
-                <div class="project-links">
-                  <a href="https://github.com/Alisher095" target="_blank" class="project-link">
-                    <i class="fab fa-github"></i>
-                  </a>
-                </div>
+              <div class="project-top">
+                <span class="project-icon"><i class="fas fa-robot"></i></span>
+                <a href="https://github.com/Alisher095" target="_blank" rel="noreferrer" class="project-link" aria-label="Open Automated Lectures System repository">
+                  <i class="fab fa-github"></i>
+                </a>
               </div>
               <h3>Automated Lectures System</h3>
               <p class="project-description">
-                AI-powered lecture automation system with smart scheduling, 
-                content distribution, and performance analytics.
+                AI-assisted lecture scheduling and content delivery backend designed for educational automation and analytics.
               </p>
               <div class="project-tech">
-                <span>Python</span>
-                <span>Flask</span>
-                <span>SQLite</span>
-                <span>Machine Learning</span>
+                <span>Python</span><span>Flask</span><span>SQLite</span><span>ML</span>
               </div>
-              <div class="project-footer">
-                <span class="project-status">
-                  <span class="status-dot active"></span>
-                  <span class="status-text">In Development</span>
-                </span>
-              </div>
+              <div class="project-state"><span class="status-dot"></span><span class="status-text">In Development</span></div>
             </article>
           </div>
         </div>
       </section>
 
-      <!-- Contact Section -->
-      <section class="section dark" id="contact">
+      <section class="section reveal" id="contact">
         <div class="container">
-          <div class="section-header">
-            <h2 class="section-title">
-              <span class="section-number">05.</span> Get In Touch
-            </h2>
-            <div class="section-line"></div>
-          </div>
-          <div class="contact-content">
-            <p class="contact-intro">
-              Have a backend project in mind? Let's collaborate and build something amazing together.
-              I'm currently available for freelance work and full-time opportunities.
-            </p>
-            <div class="contact-grid">
-              <a href="mailto:atifawanati@gmail.com" class="contact-card">
-                <div class="contact-icon">
-                  <i class="fas fa-envelope"></i>
-                </div>
-                <h3>Email</h3>
-                <p>atifawanati@gmail.com</p>
-                <span class="contact-link">Send a message <i class="fas fa-arrow-right"></i></span>
-              </a>
-
-              <a href="https://github.com/Alisher095" target="_blank" class="contact-card">
-                <div class="contact-icon">
-                  <i class="fab fa-github"></i>
-                </div>
-                <h3>GitHub</h3>
-                <p>@Alisher095</p>
-                <span class="contact-link">View projects <i class="fas fa-arrow-right"></i></span>
-              </a>
-
-              <a href="https://www.linkedin.com/in/atifawan095/" target="_blank" class="contact-card">
-                <div class="contact-icon">
-                  <i class="fab fa-linkedin"></i>
-                </div>
-                <h3>LinkedIn</h3>
-                <p>/atifawan095</p>
-                <span class="contact-link">Connect <i class="fas fa-arrow-right"></i></span>
-              </a>
-            </div>
+          <header class="section-head">
+            <p class="section-index">05.</p>
+            <h2>Get In Touch</h2>
+          </header>
+          <div class="contact-grid">
+            <a class="contact-card glass" href="mailto:scapegoat995@gmail.com">
+              <i class="fas fa-envelope"></i>
+              <h3>Email</h3>
+              <p>scapegoat995@gmail.com</p>
+              <span>Send message <i class="fas fa-arrow-right"></i></span>
+            </a>
+            <a class="contact-card glass" href="https://github.com/Alisher095" target="_blank" rel="noreferrer">
+              <i class="fab fa-github"></i>
+              <h3>GitHub</h3>
+              <p>@Alisher095</p>
+              <span>View repositories <i class="fas fa-arrow-right"></i></span>
+            </a>
+            <a class="contact-card glass" href="https://www.linkedin.com/" target="_blank" rel="noreferrer">
+              <i class="fab fa-linkedin"></i>
+              <h3>LinkedIn</h3>
+              <p>Professional Profile</p>
+              <span>Connect now <i class="fas fa-arrow-right"></i></span>
+            </a>
           </div>
         </div>
       </section>
     </main>
 
-    <!-- Footer -->
-    <footer class="footer">
-      <div class="container">
-        <div class="footer-content">
-          <div class="footer-brand">
-            <span class="logo">{</span>
-            <span class="logo-text">Atif</span>
-            <span class="logo">}</span>
-            <span class="cursor">_</span>
-          </div>
-          <p class="footer-tagline">
-            Building the backend that powers tomorrow's applications
-          </p>
-          <div class="footer-social">
-            <a href="https://github.com/Alisher095" target="_blank" class="social-link">
-              <i class="fab fa-github"></i>
-            </a>
-            <a href="https://www.linkedin.com/in/atifawan095/" target="_blank" class="social-link">
-              <i class="fab fa-linkedin"></i>
-            </a>
-            <a href="https://twitter.com" target="_blank" class="social-link">
-              <i class="fab fa-twitter"></i>
-            </a>
-            <a href="https://stackoverflow.com" target="_blank" class="social-link">
-              <i class="fab fa-stack-overflow"></i>
-            </a>
-          </div>
-          <div class="footer-bottom">
-            <p>&copy; 2026 Muhammad Atif. All rights reserved.</p>
-            <p>Built with <i class="fas fa-heart"></i> Talib Hussain Dard <i class="fas fa-music"></i></p>
-          </div>
+    <footer class="site-footer">
+      <div class="container footer-inner glass">
+        <div class="footer-brand">
+          <span class="brand-bracket">{</span>
+          <span class="brand-name">Ali Sher</span>
+          <span class="brand-bracket">}</span>
         </div>
+        <p>Building backend systems that scale with confidence.</p>
+        <div class="footer-links">
+          <a href="https://github.com/Alisher095" target="_blank" rel="noreferrer"><i class="fab fa-github"></i></a>
+          <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer"><i class="fab fa-linkedin"></i></a>
+        </div>
+        <p class="copyright">&copy; 2026 Ali Sher</p>
       </div>
     </footer>
 
-    <!-- Back to Top Button -->
     <button class="back-to-top" aria-label="Back to top">
       <i class="fas fa-chevron-up"></i>
     </button>
-
-    <!-- JavaScript for interactions -->
-    <script src="assets/js/main.js"></script>
   </body>
 </html>

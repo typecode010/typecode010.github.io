@@ -1,365 +1,291 @@
-// Main JavaScript for Portfolio Interactions
+document.addEventListener('DOMContentLoaded', () => {
+  const body = document.body;
 
-document.addEventListener('DOMContentLoaded', function() {
-  // Terminal cursor effect
-  const cursor = document.querySelector('.terminal-cursor');
-  document.addEventListener('mousemove', (e) => {
-    cursor.style.left = e.clientX + 'px';
-    cursor.style.top = e.clientY + 'px';
-  });
-
-  // Mobile navigation toggle
   const navToggle = document.querySelector('.nav-toggle');
   const navLinks = document.querySelector('.nav-links');
-  
-  navToggle.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
-    navToggle.innerHTML = navLinks.classList.contains('active') 
-      ? '<i class="fas fa-times"></i>' 
-      : '<i class="fas fa-bars"></i>';
-  });
-
-  // Close mobile menu when clicking a link
-  document.querySelectorAll('.nav-link').forEach(link => {
-    link.addEventListener('click', () => {
-      navLinks.classList.remove('active');
-      navToggle.innerHTML = '<i class="fas fa-bars"></i>';
+  if (navToggle && navLinks) {
+    navToggle.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', String(isOpen));
+      navToggle.innerHTML = isOpen ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
     });
-  });
 
-  // Active navigation on scroll
-  const sections = document.querySelectorAll('section[id]');
-  
-  function updateActiveNav() {
-    const scrollY = window.pageYOffset;
-    
-    sections.forEach(section => {
-      const sectionHeight = section.offsetHeight;
-      const sectionTop = section.offsetTop - 100;
-      const sectionId = section.getAttribute('id');
-      const navLink = document.querySelector(`.nav-link[href="#${sectionId}"]`);
-      
-      if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-        navLink?.classList.add('active');
-      } else {
-        navLink?.classList.remove('active');
-      }
+    navLinks.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
+        navToggle.innerHTML = '<i class="fas fa-bars"></i>';
+      });
     });
   }
-  
-  window.addEventListener('scroll', updateActiveNav);
 
-  // Back to top button
-  const backToTopBtn = document.querySelector('.back-to-top');
-  
-  window.addEventListener('scroll', () => {
-    if (window.pageYOffset > 300) {
-      backToTopBtn.classList.add('visible');
-    } else {
-      backToTopBtn.classList.remove('visible');
+  const sections = document.querySelectorAll('section[id]');
+  const page = body.dataset.page || 'home';
+  const navCandidates = document.querySelectorAll('.nav-link');
+  const updateActiveLink = () => {
+    if (page !== 'home') {
+      return;
     }
-  });
-  
-  backToTopBtn.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
 
-  // Typewriter effect
+    const scrollPosition = window.scrollY + 120;
+    sections.forEach((section) => {
+      const top = section.offsetTop;
+      const height = section.offsetHeight;
+      const id = section.getAttribute('id');
+      const link = document.querySelector(`.nav-link[href="#${id}"]`);
+      if (!link) {
+        return;
+      }
+
+      if (scrollPosition >= top && scrollPosition < top + height) {
+        navCandidates.forEach((navLink) => navLink.classList.remove('active'));
+        link.classList.add('active');
+      }
+    });
+  };
+
+  if (page === 'home') {
+    window.addEventListener('scroll', updateActiveLink);
+    updateActiveLink();
+  }
+
+  const revealElements = document.querySelectorAll('.reveal');
+  if (revealElements.length) {
+    const revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.16,
+        rootMargin: '0px 0px -40px 0px',
+      }
+    );
+
+    revealElements.forEach((element) => revealObserver.observe(element));
+  }
+
   const typewriterElement = document.querySelector('.typewriter');
   if (typewriterElement) {
-    const words = JSON.parse(typewriterElement.dataset.words);
+    const words = JSON.parse(typewriterElement.dataset.words || '[]');
     let wordIndex = 0;
     let charIndex = 0;
-    let isDeleting = false;
-    
-    function type() {
-      const currentWord = words[wordIndex];
-      
-      if (isDeleting) {
-        charIndex--;
+    let deleting = false;
+
+    const runTypewriter = () => {
+      const current = words[wordIndex] || '';
+      if (!deleting) {
+        charIndex += 1;
       } else {
-        charIndex++;
+        charIndex -= 1;
       }
-      
-      typewriterElement.textContent = currentWord.substring(0, charIndex);
-      
-      let typeSpeed = 100;
-      
-      if (isDeleting) {
-        typeSpeed /= 2;
-      }
-      
-      if (!isDeleting && charIndex === currentWord.length) {
-        typeSpeed = 2000;
-        isDeleting = true;
-      } else if (isDeleting && charIndex === 0) {
-        isDeleting = false;
+
+      typewriterElement.textContent = current.slice(0, charIndex);
+
+      let speed = deleting ? 45 : 85;
+      if (!deleting && charIndex === current.length) {
+        speed = 1200;
+        deleting = true;
+      } else if (deleting && charIndex === 0) {
+        deleting = false;
         wordIndex = (wordIndex + 1) % words.length;
-        typeSpeed = 500;
+        speed = 360;
       }
-      
-      setTimeout(type, typeSpeed);
+
+      setTimeout(runTypewriter, speed);
+    };
+
+    if (words.length > 0) {
+      setTimeout(runTypewriter, 500);
     }
-    
-    setTimeout(type, 1000);
   }
 
-  // Code typing animation for backend.py window (loop + syntax colors)
   const codeTarget = document.getElementById('backend-code');
   const codeSource = document.getElementById('backend-code-source');
-
-  const normalizeIndent = (text) => {
-    const lines = text.replace(/\t/g, '  ').split('\n');
-    const nonEmpty = lines.filter((line) => line.trim().length > 0);
-    const minIndent = Math.min(
-      ...nonEmpty.map((line) => (line.match(/^\s+/) || [''])[0].length)
-    );
-    return lines.map((line) => line.slice(minIndent)).join('\n').trim();
-  };
-
-  const highlightPython = (code) => {
-    const escapeHtml = (str) =>
-      str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-
-    let html = escapeHtml(code);
-
-    // Strings
-    html = html.replace(/("""[\s\S]*?"""|'''[\s\S]*?'''|"[^"]*"|'[^']*')/g, '<span class="string">$1</span>');
-    // Decorators
-    html = html.replace(/(^|\s)(@[\w\.]+)/g, '$1<span class="decorator">$2</span>');
-    // Comments
-    html = html.replace(/(#.*?$)/gm, '<span class="comment">$1</span>');
-    // Keywords
-    html = html.replace(/\b(async|await|def|return|class|from|import|as|if|elif|else|for|while|try|except|with|pass|True|False|None)\b/g, '<span class="keyword">$1</span>');
-    // Numbers
-    html = html.replace(/\b(\d+)\b/g, '<span class="number">$1</span>');
-
-    return html;
-  };
-
   if (codeTarget && codeSource) {
-    const fullText = normalizeIndent(codeSource.textContent);
-    let index = 0;
-    const speed = 14;
-    const pause = 1200;
+    const snippets = [
+      codeSource.textContent.trim(),
+      `from fastapi import FastAPI\nfrom routes.health import router as health_router\nfrom services.cache import setup_cache\n\napp = FastAPI(title=\"Ali Sher Backend\")\napp.include_router(health_router)\n\n@app.on_event(\"startup\")\nasync def startup():\n    await setup_cache()\n\n@app.get(\"/status\")\nasync def status():\n    return {\"service\": \"ready\", \"uptime\": \"stable\"}`,
+      `class Metrics:\n    def __init__(self, client):\n        self.client = client\n\n    async def record_latency(self, endpoint, ms):\n        payload = {\"endpoint\": endpoint, \"latency_ms\": ms}\n        await self.client.write(payload)\n\n# reliability is a feature, not an afterthought`
+    ];
 
-    const typeCode = () => {
-      const slice = fullText.slice(0, index);
-      codeTarget.innerHTML = highlightPython(slice);
-      index += 1;
+    const keywordPattern = /\b(from|import|as|class|def|return|async|await|if|else|for|in|raise|try|except)\b/g;
+    const functionPattern = /\b([a-zA-Z_][a-zA-Z0-9_]*)(?=\()/g;
+    const stringPattern = /("[^"\\]*(?:\\.[^"\\]*)*"|'[^'\\]*(?:\\.[^'\\]*)*')/g;
+    const commentPattern = /(#[^\n]*)/g;
 
-      if (index <= fullText.length) {
-        setTimeout(typeCode, speed);
+    const highlight = (text) =>
+      text
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(commentPattern, '<span class="cm">$1</span>')
+        .replace(stringPattern, '<span class="str">$1</span>')
+        .replace(keywordPattern, '<span class="kw">$1</span>')
+        .replace(functionPattern, '<span class="fn">$1</span>');
+
+    let snippetIndex = 0;
+    let charIndex = 0;
+    let deleting = false;
+
+    const runCodeType = () => {
+      const activeSnippet = snippets[snippetIndex];
+
+      if (!deleting) {
+        charIndex += 1;
       } else {
-        setTimeout(() => {
-          index = 0;
-          codeTarget.innerHTML = '';
-          setTimeout(typeCode, 400);
-        }, pause);
+        charIndex -= 2;
+      }
+
+      if (charIndex < 0) {
+        charIndex = 0;
+      }
+
+      const visible = activeSnippet.slice(0, charIndex);
+      codeTarget.innerHTML = highlight(visible);
+
+      let delay = deleting ? 16 : 12;
+      if (!deleting && charIndex >= activeSnippet.length) {
+        deleting = true;
+        delay = 1500;
+      } else if (deleting && charIndex === 0) {
+        deleting = false;
+        snippetIndex = (snippetIndex + 1) % snippets.length;
+        delay = 320;
+      }
+
+      setTimeout(runCodeType, delay);
+    };
+
+    setTimeout(runCodeType, 600);
+  }
+
+  const skillBars = document.querySelectorAll('.skill-level');
+  if (skillBars.length) {
+    const skillObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const level = entry.target.getAttribute('data-level') || '0';
+            const delay = Number(entry.target.dataset.delay || 0);
+            setTimeout(() => {
+              entry.target.style.width = `${level}%`;
+            }, delay);
+            skillObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    skillBars.forEach((bar, index) => {
+      bar.dataset.delay = String((index % 4) * 110);
+      skillObserver.observe(bar);
+    });
+  }
+
+  const backToTop = document.querySelector('.back-to-top');
+  if (backToTop) {
+    const handleTopButton = () => {
+      if (window.scrollY > 350) {
+        backToTop.classList.add('show');
+      } else {
+        backToTop.classList.remove('show');
       }
     };
 
-    setTimeout(typeCode, 600);
-  }
+    window.addEventListener('scroll', handleTopButton);
+    handleTopButton();
 
-  // Animate skill bars on scroll
-  const skillBars = document.querySelectorAll('.skill-level');
-  
-  function animateSkillBars() {
-    skillBars.forEach(bar => {
-      const level = bar.dataset.level;
-      const isInViewport = bar.getBoundingClientRect().top < window.innerHeight;
-      
-      if (isInViewport && !bar.style.width) {
-        bar.style.width = level + '%';
-      }
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   }
-  
-  // Initial check
-  animateSkillBars();
-  
-  // Check on scroll
-  window.addEventListener('scroll', animateSkillBars);
-
-  // Smooth scrolling for anchor links
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-      const href = this.getAttribute('href');
-      
-      if (href === '#') return;
-      
-      e.preventDefault();
-      const target = document.querySelector(href);
-      
-      if (target) {
-        window.scrollTo({
-          top: target.offsetTop - 80,
-          behavior: 'smooth'
-        });
-      }
-    });
-  });
 
   const featuredProjectsData = [
     {
       title: 'Pakistan Traveling Assistant',
-      description:
-        'A comprehensive travel platform with intelligent destination recommendations, trip planning algorithms, and real-time data processing.',
+      description: 'Recommendation-driven travel backend with itinerary intelligence and robust API design.',
       image: 'assets/images/pak_trv.png',
       alt: 'Pakistan Traveling Assistant',
       tech: ['Python', 'FastAPI', 'PostgreSQL', 'Redis'],
       status: 'Backend Complete',
       iconClass: 'fas fa-plane',
-      highlight: true
     },
     {
       title: 'Event Management System',
-      description:
-        'Full-featured event management platform with role-based access control, real-time notifications, and automated scheduling.',
+      description: 'Role-based event backend supporting notifications, scheduling, and operational analytics.',
       image: 'assets/images/image.png',
       alt: 'Event Management System',
       tech: ['Python', 'Django', 'PostgreSQL', 'Celery'],
       status: 'Production Ready',
-      iconClass: 'fas fa-calendar-alt',
-      highlight: true
+      iconClass: 'fas fa-calendar-check',
     },
     {
       title: 'Automated Lectures System',
-      description:
-        'AI-powered lecture automation system with smart scheduling, content distribution, and performance analytics.',
+      description: 'Automation-heavy lecture backend with content sequencing and monitoring pipelines.',
       image: 'assets/images/automated_lectures.png',
       alt: 'Automated Lectures System',
-      tech: ['Python', 'Flask', 'SQLite', 'Machine Learning'],
+      tech: ['Python', 'Flask', 'SQLite', 'ML'],
       status: 'In Development',
-      iconClass: 'fas fa-chalkboard-teacher',
-      highlight: true
-    },
-    {
-      title: 'Kids Coding LMS',
-      description:
-        'A learning platform for young coders featuring guided lessons, progress tracking, and interactive challenges.',
-      image: 'assets/images/kidicode.png',
-      alt: 'Kids Coding LMS',
-      tech: ['Python', 'Django', 'PostgreSQL'],
-      status: 'Backend Complete',
-      iconClass: 'fas fa-child',
-      highlight: true
-    },
-    {
-      title: 'Lucky Draw System',
-      description:
-        'A fair draw system handling participants, entries, and randomized winners with complete admin oversight.',
-      image: 'assets/images/lucky.png',
-      alt: 'Lucky Draw System',
-      tech: ['PHP', 'JavaScript', 'MySQL'],
-      status: 'Production Ready',
-      iconClass: 'fas fa-dice',
-      highlight: true
+      iconClass: 'fas fa-robot',
     },
     {
       title: 'Trace Fake',
-      description:
-        'A verification backend that evaluates submissions against trusted data to highlight duplicates and fake records.',
+      description: 'Data verification backend for fraud detection and duplicate traceability.',
       image: 'assets/images/trace.png',
       alt: 'Trace Fake',
       tech: ['Python', 'FastAPI', 'PostgreSQL'],
       status: 'Backend Complete',
-      iconClass: 'fas fa-shield-alt',
-      highlight: true
-    }
+      iconClass: 'fas fa-shield',
+    },
   ];
 
-  const featuredRotator = document.getElementById('featured-projects-rotator');
-  const featuredSlots = featuredRotator ? featuredRotator.querySelectorAll('.project-card') : [];
+  const featuredContainer = document.getElementById('featured-projects-rotator');
+  if (featuredContainer && body.dataset.page === 'home') {
+    const slots = featuredContainer.querySelectorAll('[data-slot]');
 
-  const pickRandomProjects = () => {
-    const pool = [...featuredProjectsData];
-    const targetCount = Math.min(featuredSlots.length, pool.length);
-    const selected = [];
-
-    while (selected.length < targetCount && pool.length > 0) {
-      const index = Math.floor(Math.random() * pool.length);
-      selected.push(pool.splice(index, 1)[0]);
-    }
-
-    return selected;
-  };
-
-  const renderFeaturedProjects = (projects) => {
-    featuredSlots.forEach((slot, index) => {
-      const project = projects[index];
-
-      if (!project) {
-        slot.style.display = 'none';
-        return;
+    const randomSelection = () => {
+      const pool = [...featuredProjectsData];
+      const result = [];
+      const count = Math.min(slots.length, pool.length);
+      while (result.length < count) {
+        const randomIndex = Math.floor(Math.random() * pool.length);
+        result.push(pool.splice(randomIndex, 1)[0]);
       }
+      return result;
+    };
 
-      slot.style.display = '';
-      slot.querySelector('.project-thumb').src = project.image;
-      slot.querySelector('.project-thumb').alt = project.alt;
-      slot.querySelector('.project-icon i').className = project.iconClass;
-      slot.querySelector('h3').textContent = project.title;
-      slot.querySelector('.project-description').textContent = project.description;
-      slot.querySelector('.project-tech').innerHTML = project.tech.map(tech => `<span>${tech}</span>`).join('');
-      slot.querySelector('.status-text').textContent = project.status;
-      slot.querySelector('.status-dot').classList.toggle('active', !!project.highlight);
-    });
-  };
+    const renderSlots = (projects) => {
+      slots.forEach((slot, index) => {
+        const project = projects[index];
+        if (!project) {
+          slot.style.display = 'none';
+          return;
+        }
 
-  if (featuredSlots.length) {
-    renderFeaturedProjects(pickRandomProjects());
-    setInterval(() => {
-      renderFeaturedProjects(pickRandomProjects());
-    }, 3000);
+        const image = slot.querySelector('.project-thumb');
+        const icon = slot.querySelector('.project-icon i');
+        const title = slot.querySelector('h3');
+        const description = slot.querySelector('.project-description');
+        const tech = slot.querySelector('.project-tech');
+        const status = slot.querySelector('.status-text');
+
+        image.src = project.image;
+        image.alt = project.alt;
+        icon.className = project.iconClass;
+        title.textContent = project.title;
+        description.textContent = project.description;
+        tech.innerHTML = project.tech.map((item) => `<span>${item}</span>`).join('');
+        status.textContent = project.status;
+      });
+    };
+
+    renderSlots(randomSelection());
+    setInterval(() => renderSlots(randomSelection()), 4800);
   }
-
-  // Parallax effect for floating shapes
-  window.addEventListener('scroll', () => {
-    const scrolled = window.pageYOffset;
-    const shapes = document.querySelectorAll('.shape');
-    
-    shapes.forEach((shape, index) => {
-      const speed = 0.5 + (index * 0.1);
-      shape.style.transform = `translateY(${scrolled * speed * 0.1}px)`;
-    });
-  });
-
-  // Project card hover effect enhancement
-  const projectCards = document.querySelectorAll('.project-card');
-  
-  projectCards.forEach(card => {
-    card.addEventListener('mouseenter', () => {
-      card.style.zIndex = '10';
-    });
-    
-    card.addEventListener('mouseleave', () => {
-      card.style.zIndex = '1';
-    });
-  });
-
-  // Copy email to clipboard
-  const emailLink = document.querySelector('a[href^="mailto"]');
-  emailLink?.addEventListener('click', (e) => {
-    const email = emailLink.href.replace('mailto:', '');
-    
-    // Create a temporary textarea to copy the email
-    const textarea = document.createElement('textarea');
-    textarea.value = email;
-    document.body.appendChild(textarea);
-    textarea.select();
-    document.execCommand('copy');
-    document.body.removeChild(textarea);
-    
-    // Show a subtle notification
-    const originalText = emailLink.textContent;
-    emailLink.textContent = 'Email copied!';
-    
-    setTimeout(() => {
-      emailLink.textContent = originalText;
-    }, 2000);
-  });
-
-  // Initialize skill bars animation on load
-  setTimeout(animateSkillBars, 500);
 });
