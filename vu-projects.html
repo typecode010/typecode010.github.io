@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Ali Sher VU Projects - Virtual University semester projects and student feedback showcase."
+    />
+    <title>VU Projects | Ali Sher</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="assets/js/main.js" defer></script>
+  </head>
+  <body data-page="vu-projects">
+    <div class="noise-overlay" aria-hidden="true"></div>
+    <div class="animated-bg" aria-hidden="true">
+      <span class="orb orb-cyan"></span>
+      <span class="orb orb-purple"></span>
+      <span class="grid-layer"></span>
+    </div>
+
+    <header class="site-header">
+      <nav class="navbar glass" aria-label="Main navigation">
+        <div class="container nav-inner">
+          <a href="index.html" class="brand" aria-label="Ali Sher home">
+            <span class="brand-bracket">{</span>
+            <span class="brand-name">Ali Sher</span>
+            <span class="brand-bracket">}</span>
+          </a>
+
+          <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">
+            <i class="fas fa-bars"></i>
+          </button>
+
+          <ul class="nav-links" id="main-menu">
+            <li><a class="nav-link" href="index.html#home"><span>01.</span> Home</a></li>
+            <li><a class="nav-link" href="index.html#about"><span>02.</span> About</a></li>
+            <li><a class="nav-link" href="index.html#skills"><span>03.</span> Skills</a></li>
+            <li><a class="nav-link" href="projects.html"><span>04.</span> Projects</a></li>
+            <li><a class="nav-link" href="index.html#contact"><span>05.</span> Contact</a></li>
+            <li><a class="nav-link nav-projects-link active" href="vu-projects.html">VU Projects</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="section projects-hero" id="vu-home">
+        <div class="container projects-hero-layout reveal">
+          <article>
+            <p class="kicker">Virtual University Showcase</p>
+            <h1 class="hero-title"><span class="gradient-text">VU Projects</span></h1>
+            <p class="hero-lead">
+              Dedicated portfolio area for Virtual University semester projects and student feedback. Select a semester
+              to view project highlights and testimonial responses.
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-primary glass" href="#vu-projects-list"><i class="fas fa-folder-open"></i> Explore VU Work</a>
+              <a class="btn btn-ghost glass" href="index.html"><i class="fas fa-arrow-left"></i> Back to Home</a>
+            </div>
+          </article>
+          <aside class="glass projects-hero-aside">
+            <h3>Project Development Phase</h3>
+            <ul>
+              <li>SRS</li>
+              <li>Design Documentation</li>
+              <li>Prototype + Prototype Viva Preparation</li>
+              <li>Final Deliverable: Report + Presentation (Full Preparation)</li>
+            </ul>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section reveal" id="vu-projects-list">
+        <div class="container">
+          <header class="section-head">
+            <p class="section-index">Virtual University of Pakistan</p>
+            <h2>Semester Projects</h2>
+          </header>
+
+
+          <button class="semester-toggle-btn btn btn-ghost glass" id="semester-toggle" type="button" aria-expanded="true" aria-controls="semester-panels-wrapper">
+            <i class="fas fa-chevron-down"></i> Toggle Semester Projects
+          </button>
+
+          <div class="semester-switch glass" role="tablist" aria-label="Select VU semester">
+            <button class="semester-tab is-active" type="button" data-semester="spring-2025" role="tab" aria-selected="true">Spring 2025</button>
+            <button class="semester-tab" type="button" data-semester="fall-2025" role="tab" aria-selected="false">Fall 2025</button>
+            <button class="semester-tab" type="button" data-semester="spring-2026" role="tab" aria-selected="false">Spring 2026</button>
+          </div>
+
+          <div class="semester-panels-wrapper" id="semester-panels-wrapper">
+
+          <div class="semester-panel is-active" data-semester-panel="spring-2025">
+            <div class="projects-grid vu-grid">
+              <article class="project-card glass project-lift">
+                <img class="project-thumb" src="assets/images/pak_trv.png" alt="Pakistan Traveling Assistant" />
+                <div class="project-top">
+                  <span class="project-icon"><i class="fas fa-plane"></i></span>
+                </div>
+                <h3>Pakistan Traveling Assistant</h3>
+                <p class="project-description">Destination recommendation and itinerary backend with real-time processing and API-first design.</p>
+                <div class="project-tech"><span>Python</span><span>FastAPI</span><span>PostgreSQL</span><span>Redis</span></div>
+              </article>
+              <article class="project-card glass project-lift">
+                <img class="project-thumb" src="assets/images/ems.png" alt="Event Management System" />
+                <div class="project-top">
+                  <span class="project-icon"><i class="fas fa-calendar-check"></i></span>
+                </div>
+                <h3>Event Management System</h3>
+                <p class="project-description">Enterprise-style event management backend with role permissions, notifications, and data workflows.</p>
+                <div class="project-tech"><span>Python</span><span>Django</span><span>PostgreSQL</span><span>Celery</span></div>
+              </article>
+              <article class="project-card glass project-lift">
+                <img class="project-thumb" src="assets/images/automated_lectures.png" alt="Automated Lectures System" />
+                <div class="project-top">
+                  <span class="project-icon"><i class="fas fa-robot"></i></span>
+                </div>
+                <h3>Automated Lectures System</h3>
+                <p class="project-description">Smart scheduling, content dispatch, and analytics for lecture automation in education workflows.</p>
+                <div class="project-tech"><span>Python</span><span>Flask</span><span>SQLite</span><span>ML</span></div>
+              </article>
+              <article class="project-card glass project-lift">
+                <img class="project-thumb" src="assets/images/kidicode.png" alt="Kids Coding LMS" />
+                <div class="project-top">
+                  <span class="project-icon"><i class="fas fa-child"></i></span>
+                </div>
+                <h3>Kids Coding LMS</h3>
+                <p class="project-description">Learning backend for coding education, including progress tracking, assessments, and content delivery APIs.</p>
+                <div class="project-tech"><span>Python</span><span>Django</span><span>PostgreSQL</span></div>
+              </article>
+            </div>
+          </div>
+
+          <div class="semester-panel" data-semester-panel="fall-2025">
+            <div class="projects-grid vu-grid">
+              <article class="project-card glass project-lift">
+                <img class="project-thumb" src="assets/images/lucky.png" alt="Lucky Draw System" />
+                <div class="project-top">
+                  <span class="project-icon"><i class="fas fa-dice"></i></span>
+                </div>
+                <h3>Lucky Draw System</h3>
+                <p class="project-description">Fair participant randomization backend with admin controls, validation layers, and transparent selection logic.</p>
+                <div class="project-tech"><span>PHP</span><span>JavaScript</span><span>MySQL</span></div>
+              </article>
+              <article class="project-card glass project-lift">
+                <img class="project-thumb" src="assets/images/trace.png" alt="Trace Fake" />
+                <div class="project-top">
+                  <span class="project-icon"><i class="fas fa-shield"></i></span>
+                </div>
+                <h3>Trace Fake</h3>
+                <p class="project-description">Fraud and duplicate detection backend using verification pipelines and consistency rules.</p>
+                <div class="project-tech"><span>Python</span><span>FastAPI</span><span>PostgreSQL</span></div>
+              </article>
+              <article class="project-card glass project-lift">
+                <img class="project-thumb" src="assets/images/job.png" alt="Online Job Portal" />
+                <div class="project-top">
+                  <span class="project-icon"><i class="fas fa-briefcase"></i></span>
+                </div>
+                <h3>Online Job Portal</h3>
+                <p class="project-description">Scalable backend connecting employers and candidates with application workflows and profile systems.</p>
+                <div class="project-tech"><span>Python</span><span>Django</span><span>PostgreSQL</span></div>
+              </article>
+              <article class="project-card glass project-lift">
+                <img class="project-thumb" src="assets/images/logo.png" alt="Online IoT Store" />
+                <div class="project-top">
+                  <span class="project-icon"><i class="fas fa-microchip"></i></span>
+                </div>
+                <h3>Online IoT Store</h3>
+                <p class="project-description">E-commerce backend for IoT devices with inventory management, order processing, and catalog APIs.</p>
+                <div class="project-tech"><span>Python</span><span>FastAPI</span><span>PostgreSQL</span></div>
+              </article>
+            </div>
+          </div>
+
+          <div class="semester-panel" data-semester-panel="spring-2026">
+            <div class="projects-grid vu-grid">
+              <article class="project-card glass project-lift">
+                <img class="project-thumb" src="assets/images/job2.png" alt="Alumni Connect Jobs Platform" />
+                <div class="project-top">
+                  <span class="project-icon"><i class="fas fa-users"></i></span>
+                </div>
+                <h3>Alumni Connect Jobs Platform</h3>
+                <p class="project-description">Community hiring and networking backend where alumni share opportunities and collaborate professionally.</p>
+                <div class="project-tech"><span>Python</span><span>Django</span><span>SQLite</span></div>
+              </article>
+              <article class="project-card glass project-lift">
+                <img class="project-thumb" src="assets/images/clinic.png" alt="Clinic Management System" />
+                <div class="project-top">
+                  <span class="project-icon"><i class="fas fa-hospital"></i></span>
+                </div>
+                <h3>Clinic Management System</h3>
+                <p class="project-description">Patient, appointment, and record handling backend for clinics with workflow automation and reporting.</p>
+                <div class="project-tech"><span>Python</span><span>Django</span><span>PostgreSQL</span></div>
+              </article>
+              <article class="project-card glass project-lift">
+                <img class="project-thumb" src="assets/images/access.png" alt="Access Form" />
+                <div class="project-top">
+                  <span class="project-icon"><i class="fas fa-universal-access"></i></span>
+                </div>
+                <h3>Access Form</h3>
+                <p class="project-description">Secure backend for registration and access workflows, including validation and role-based permissions.</p>
+                <div class="project-tech"><span>Python</span><span>Flask</span><span>SQLite</span></div>
+              </article>
+            </div>
+          </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section reveal" id="vu-feedback">
+        <div class="container">
+          <header class="section-head">
+            <p class="section-index">FB.</p>
+            <h2>Students Feedback</h2>
+          </header>
+
+          <div class="feedback-meta glass">
+            <p>Spring 2025: 3</p>
+            <p>Fall 2025: 3</p>
+            <p>Spring 2026: 3</p>
+          </div>
+
+          <div class="feedback-controls">
+            <div class="feedback-view-switch glass" role="group" aria-label="Feedback view mode">
+              <button class="feedback-view-btn is-active" type="button" data-feedback-view="3">3 at once</button>
+              <button class="feedback-view-btn" type="button" data-feedback-view="1">1 by 1</button>
+            </div>
+            <div class="feedback-nav">
+              <button class="feedback-arrow btn btn-ghost glass" type="button" id="feedback-prev" aria-label="Previous feedback">
+                <i class="fas fa-chevron-left"></i>
+              </button>
+              <button class="feedback-arrow btn btn-ghost glass" type="button" id="feedback-next" aria-label="Next feedback">
+                <i class="fas fa-chevron-right"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="feedback-carousel" data-feedback-carousel>
+            <div class="feedback-track" id="feedback-track">
+              <article class="feedback-card glass feedback-slide">
+                <img class="feedback-photo" src="assets/images/feedbackimages/1000848827.jpg" alt="Ali Naqvi feedback screenshot" />
+                <p>"Ali bhai ne Pakistan Traveling Assistant ka backend bohat zabardast banaya. Viva me har flow easily explain ho gaya aur project smoothly run hua."</p>
+                <h3>Ali Naqvi - BSCS Student, Spring 2025</h3>
+                <p class="feedback-project">Project: Pakistan Traveling Assistant</p>
+              </article>
+              <article class="feedback-card glass feedback-slide">
+                <img class="feedback-photo" src="assets/images/feedbackimages/1000856558.jpg" alt="Hafsa Noor feedback screenshot" />
+                <p>"Event Management System ki documentation aur modules itne clear thay ke mujhe viva se pehle full confidence mil gaya. Proper support mila."</p>
+                <h3>Hafsa Noor - BSCS Student, Spring 2025</h3>
+                <p class="feedback-project">Project: Event Management System</p>
+              </article>
+              <article class="feedback-card glass feedback-slide">
+                <img class="feedback-photo" src="assets/images/feedbackimages/1000856559.jpg" alt="Usman Tariq feedback screenshot" />
+                <p>"Automated Lectures System me schedule aur report wala part perfectly work kar raha tha. Prototype viva clear karna easy ho gaya."</p>
+                <h3>Usman Tariq - BSCS Student, Spring 2025</h3>
+                <p class="feedback-project">Project: Automated Lectures System</p>
+              </article>
+              <article class="feedback-card glass feedback-slide">
+                <img class="feedback-photo" src="assets/images/feedbackimages/1000856560.jpg" alt="Zainab Raza feedback screenshot" />
+                <p>"Kids Coding LMS ka complete module time par deliver hua, dashboard aur assignments sab clear thay. Demo de kar marks bhi achay aye."</p>
+                <h3>Zainab Raza - BSCS Student, Fall 2025</h3>
+                <p class="feedback-project">Project: Kids Coding LMS</p>
+              </article>
+              <article class="feedback-card glass feedback-slide">
+                <img class="feedback-photo" src="assets/images/feedbackimages/1000856561.jpg" alt="Hassan Qureshi feedback screenshot" />
+                <p>"Lucky Draw System ka logic bilkul professional bana, aur jo presentation points mile un se final viva me bohat help hui."</p>
+                <h3>Hassan Qureshi - BSCS Student, Fall 2025</h3>
+                <p class="feedback-project">Project: Lucky Draw System</p>
+              </article>
+              <article class="feedback-card glass feedback-slide">
+                <img class="feedback-photo" src="assets/images/feedbackimages/1000856576.jpg" alt="Maham Imran feedback screenshot" />
+                <p>"Trace Fake project me detection flow aur report generation smooth thi. Ali bhai ne har point simple roman urdu me samjha diya."</p>
+                <h3>Maham Imran - BSCS Student, Fall 2025</h3>
+                <p class="feedback-project">Project: Trace Fake</p>
+              </article>
+              <article class="feedback-card glass feedback-slide">
+                <img class="feedback-photo" src="assets/images/feedbackimages/1001190170.jpg" alt="Bilal Ahmad feedback screenshot" />
+                <p>"Online Job Portal complete aur error-free mila. Admin side aur user side dono strong thay aur viva ke answers bhi ready mil gaye."</p>
+                <h3>Bilal Ahmad - BSCS Student, Spring 2026</h3>
+                <p class="feedback-project">Project: Online Job Portal</p>
+              </article>
+              <article class="feedback-card glass feedback-slide">
+                <img class="feedback-photo" src="assets/images/feedbackimages/1001190411.jpg" alt="Areeba Fatima feedback screenshot" />
+                <p>"Online IoT Store ka backend bohat acha bana, APIs aur modules neat thay. Final report aur PPT bhi proper form me mili."</p>
+                <h3>Areeba Fatima - BSCS Student, Spring 2026</h3>
+                <p class="feedback-project">Project: Online IoT Store</p>
+              </article>
+              <article class="feedback-card glass feedback-slide">
+                <img class="feedback-photo" src="assets/images/feedbackimages/1001191461.jpg" alt="Saad Khan feedback screenshot" />
+                <p>"Clinic Management System ka complete flow bohat smooth tha. Ali Sher ne full support di aur main confidently viva clear kar gaya."</p>
+                <h3>Saad Khan - BSCS Student, Spring 2026</h3>
+                <p class="feedback-project">Project: Clinic Management System</p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner glass">
+        <div class="footer-brand">
+          <span class="brand-bracket">{</span>
+          <span class="brand-name">Ali Sher</span>
+          <span class="brand-bracket">}</span>
+        </div>
+        <p>Virtual University focused project showcase.</p>
+        <div class="footer-links">
+          <a href="https://github.com/Alisher095" target="_blank" rel="noreferrer"><i class="fab fa-github"></i></a>
+          <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer"><i class="fab fa-linkedin"></i></a>
+        </div>
+        <p class="copyright">&copy; 2026 Ali Sher</p>
+      </div>
+    </footer>
+
+    <button class="back-to-top" aria-label="Back to top">
+      <i class="fas fa-chevron-up"></i>
+    </button>
+  </body>
+</html>

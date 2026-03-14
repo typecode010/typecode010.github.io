@@ -47,6 +47,7 @@
             <li><a class="nav-link" href="#projects"><span>04.</span> Projects</a></li>
             <li><a class="nav-link" href="#contact"><span>05.</span> Contact</a></li>
             <li><a class="nav-link nav-projects-link" href="projects.html">All Projects</a></li>
+            <li><a class="nav-link nav-projects-link" href="vu-projects.html">VU Projects</a></li>
           </ul>
         </div>
       </nav>
@@ -71,15 +72,16 @@
             <div class="hero-actions">
               <a class="btn btn-primary glass" href="#projects"><i class="fas fa-code"></i> View Projects</a>
               <a class="btn btn-ghost glass" href="#contact"><i class="fas fa-briefcase"></i> Hire Me</a>
+              <a class="btn btn-ghost glass" href="vu-projects.html"><i class="fas fa-university"></i> VU Projects</a>
               <a class="btn btn-ghost glass" href="#contact"><i class="fas fa-paper-plane"></i> Contact</a>
             </div>
             <div class="hero-stats">
               <div class="stat glass">
-                <strong>3+</strong>
+                <strong>4+</strong>
                 <span>Years Experience</span>
               </div>
               <div class="stat glass">
-                <strong>20+</strong>
+                <strong>200+</strong>
                 <span>Projects Delivered</span>
               </div>
               <div class="stat glass">
@@ -90,43 +92,8 @@
           </article>
 
           <article class="hero-terminal reveal">
-            <div class="code-window glass" role="img" aria-label="Animated backend code window">
-              <header class="code-window-header">
-                <div class="mac-controls" aria-hidden="true">
-                  <span class="dot red"></span>
-                  <span class="dot yellow"></span>
-                  <span class="dot green"></span>
-                </div>
-                <p class="file-name">vscode : services/api_gateway.py</p>
-              </header>
-              <div class="code-window-body">
-                <pre><code id="backend-code" class="python-code"></code></pre>
-                <script type="text/plain" id="backend-code-source">
-from fastapi import APIRouter, Depends, HTTPException
-from pydantic import BaseModel
-from services.analytics import emit_metric
-from core.auth import get_current_user
-
-router = APIRouter(prefix="/v1", tags=["gateway"])
-
-class DeployRequest(BaseModel):
-    service: str
-    environment: str
-
-@router.post("/deploy")
-async def deploy_service(payload: DeployRequest, user=Depends(get_current_user)):
-    if user.role not in {"admin", "devops"}:
-        raise HTTPException(status_code=403, detail="insufficient scope")
-
-    emit_metric("deploy_started", payload.service)
-    return {
-        "message": "deployment queued",
-        "service": payload.service,
-        "environment": payload.environment,
-        "requested_by": user.username,
-    }
-                </script>
-              </div>
+            <div class="profile-frame glass" role="img" aria-label="Ali Sher profile image">
+              <img src="assets/images/me.png" alt="Ali Sher profile" />
             </div>
           </article>
         </div>
@@ -348,11 +315,11 @@ async def deploy_service(payload: DeployRequest, user=Depends(get_current_user))
               <p>@Alisher095</p>
               <span>View repositories <i class="fas fa-arrow-right"></i></span>
             </a>
-            <a class="contact-card glass" href="https://www.linkedin.com/" target="_blank" rel="noreferrer">
-              <i class="fab fa-linkedin"></i>
-              <h3>LinkedIn</h3>
-              <p>Professional Profile</p>
-              <span>Connect now <i class="fas fa-arrow-right"></i></span>
+            <a class="contact-card glass" href="https://wa.me/923377633723" target="_blank" rel="noreferrer">
+              <i class="fab fa-whatsapp"></i>
+              <h3>WhatsApp</h3>
+              <p>+92 3377633723</p>
+              <span>Chat now <i class="fas fa-arrow-right"></i></span>
             </a>
           </div>
         </div>
@@ -369,7 +336,7 @@ async def deploy_service(payload: DeployRequest, user=Depends(get_current_user))
         <p>Building backend systems that scale with confidence.</p>
         <div class="footer-links">
           <a href="https://github.com/Alisher095" target="_blank" rel="noreferrer"><i class="fab fa-github"></i></a>
-          <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer"><i class="fab fa-linkedin"></i></a>
+          <a href="https://wa.me/923377633723" target="_blank" rel="noreferrer"><i class="fab fa-whatsapp"></i></a>
         </div>
         <p class="copyright">&copy; 2026 Ali Sher</p>
       </div>

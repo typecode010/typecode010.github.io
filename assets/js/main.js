@@ -288,4 +288,141 @@ document.addEventListener('DOMContentLoaded', () => {
     renderSlots(randomSelection());
     setInterval(() => renderSlots(randomSelection()), 4800);
   }
+
+  if (body.dataset.page === 'vu-projects') {
+    const semesterTabs = document.querySelectorAll('.semester-tab');
+    const semesterPanels = document.querySelectorAll('[data-semester-panel]');
+    const semesterToggle = document.getElementById('semester-toggle');
+    const semesterPanelsWrapper = document.getElementById('semester-panels-wrapper');
+
+    const activateSemester = (semester) => {
+      semesterTabs.forEach((tab) => {
+        const active = tab.dataset.semester === semester;
+        tab.classList.toggle('is-active', active);
+        tab.setAttribute('aria-selected', String(active));
+      });
+
+      semesterPanels.forEach((panel) => {
+        panel.classList.toggle('is-active', panel.dataset.semesterPanel === semester);
+      });
+    };
+
+    semesterTabs.forEach((tab) => {
+      tab.addEventListener('click', () => {
+        activateSemester(tab.dataset.semester);
+      });
+    });
+
+    if (semesterToggle && semesterPanelsWrapper) {
+      semesterToggle.addEventListener('click', () => {
+        const collapsed = semesterPanelsWrapper.classList.toggle('is-collapsed');
+        semesterToggle.setAttribute('aria-expanded', String(!collapsed));
+        semesterToggle.innerHTML = collapsed
+          ? '<i class="fas fa-chevron-right"></i> Show Semester Projects'
+          : '<i class="fas fa-chevron-down"></i> Hide Semester Projects';
+      });
+    }
+
+    const feedbackCarousel = document.querySelector('[data-feedback-carousel]');
+    if (feedbackCarousel) {
+      const track = feedbackCarousel.querySelector('.feedback-track');
+      const slides = track ? Array.from(track.querySelectorAll('.feedback-slide')) : [];
+      const prevButton = document.getElementById('feedback-prev');
+      const nextButton = document.getElementById('feedback-next');
+      const viewButtons = document.querySelectorAll('.feedback-view-btn');
+
+      let currentIndex = 0;
+      let visibleSlides = window.innerWidth < 700 ? 1 : 3;
+      const gap = 14;
+
+      const clampIndex = () => {
+        const maxIndex = Math.max(0, slides.length - visibleSlides);
+        currentIndex = Math.min(currentIndex, maxIndex);
+      };
+
+      const renderCarousel = () => {
+        if (!slides.length) {
+          return;
+        }
+
+        const containerWidth = feedbackCarousel.clientWidth;
+        const slideWidth = (containerWidth - gap * (visibleSlides - 1)) / visibleSlides;
+
+        slides.forEach((slide) => {
+          slide.style.minWidth = `${slideWidth}px`;
+          slide.style.maxWidth = `${slideWidth}px`;
+        });
+
+        clampIndex();
+        track.style.transform = `translateX(-${currentIndex * (slideWidth + gap)}px)`;
+
+        if (prevButton) {
+          prevButton.disabled = currentIndex === 0;
+        }
+        if (nextButton) {
+          nextButton.disabled = currentIndex >= Math.max(0, slides.length - visibleSlides);
+        }
+      };
+
+      if (prevButton) {
+        prevButton.addEventListener('click', () => {
+          currentIndex = Math.max(0, currentIndex - 1);
+          renderCarousel();
+        });
+      }
+
+      if (nextButton) {
+        nextButton.addEventListener('click', () => {
+          currentIndex = Math.min(Math.max(0, slides.length - visibleSlides), currentIndex + 1);
+          renderCarousel();
+        });
+      }
+
+      viewButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+          const mode = Number(button.dataset.feedbackView || 3);
+          visibleSlides = mode;
+          viewButtons.forEach((item) => item.classList.remove('is-active'));
+          button.classList.add('is-active');
+          currentIndex = 0;
+          renderCarousel();
+        });
+      });
+
+      let touchStartX = 0;
+      let touchEndX = 0;
+
+      feedbackCarousel.addEventListener('touchstart', (event) => {
+        touchStartX = event.changedTouches[0].clientX;
+      });
+
+      feedbackCarousel.addEventListener('touchend', (event) => {
+        touchEndX = event.changedTouches[0].clientX;
+        const delta = touchEndX - touchStartX;
+
+        if (Math.abs(delta) < 50) {
+          return;
+        }
+
+        if (delta < 0) {
+          currentIndex = Math.min(Math.max(0, slides.length - visibleSlides), currentIndex + 1);
+        } else {
+          currentIndex = Math.max(0, currentIndex - 1);
+        }
+        renderCarousel();
+      });
+
+      window.addEventListener('resize', () => {
+        if (window.innerWidth < 700 && visibleSlides > 1) {
+          visibleSlides = 1;
+          viewButtons.forEach((item) => item.classList.remove('is-active'));
+          const oneByOneButton = document.querySelector('.feedback-view-btn[data-feedback-view="1"]');
+          oneByOneButton?.classList.add('is-active');
+        }
+        renderCarousel();
+      });
+
+      renderCarousel();
+    }
+  }
 });
